@@ -4,10 +4,12 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import HomeScreen from './screens/Home';
 import RoomsScreen from './screens/Rooms';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {View} from 'react-native';
+import Notification from './components/Notification';
 
 const App = () => {
   const Tab = createMaterialBottomTabNavigator();
-  const iconSize = 1000;
+  const iconSize = 26;
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -20,7 +22,7 @@ const App = () => {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color}) => (
-              <MaterialIcons name="home" color={color} />
+              <MaterialIcons name="home" color={color} size={iconSize} />
             ),
           }}
         />
@@ -30,11 +32,12 @@ const App = () => {
           options={{
             tabBarLabel: 'Rooms',
             tabBarIcon: ({color}) => (
-              <MaterialIcons name="hotel" color={color} />
+              <MaterialIcons name="hotel" color={color} size={iconSize} />
             ),
           }}
         />
       </Tab.Navigator>
+      {/* <Notification /> */}
     </NavigationContainer>
   );
 };
