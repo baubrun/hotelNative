@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-navigation/material-bottom-tabs": "^6.0.3",
     "@react-navigation/native": "^6.0.2",
+    "@reduxjs/toolkit": "^1.6.1",
+    "axios": "^0.21.1",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-paper": "^4.9.2",
