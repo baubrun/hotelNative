@@ -21,6 +21,7 @@ const Notification = ({message, _type}) => {
       text1: message,
       type: _type,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <Toast config={toastConfig} ref={ref => Toast.setRef(ref)} />;

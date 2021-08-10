@@ -13,7 +13,6 @@ const Rooms = () => {
 const styles = StyleSheet.create({
   image: {
     maxWidth: '100%',
-    // height: 300,
     maxHeight: '100%',
     resizeMode: 'cover',
   },
