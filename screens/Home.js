@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ImageBackground, View, Image, Text} from 'react-native';
+import {StyleSheet, ImageBackground, View} from 'react-native';
 import Notification from '../components/Notification';
 import room2 from '../images/room-2.jpg';
 import Hero from '../components/Hero';
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={room2} resizeMode="cover">
-        <Hero subtitle="Deluxe Rooms starting at $299" title="rooms" />
+        <Hero subtitle="Deluxe Rooms starting at $299" title="HOSTEL" />
       </ImageBackground>
       {notif && <Notification message="hoempage" _type="error" />}
     </View>
