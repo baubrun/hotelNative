@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/Home';
 import SearchScreen from './screens/Search';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -8,35 +8,21 @@ import {StyleSheet} from 'react-native';
 // import Notification from './components/Notification';
 
 const App = () => {
-  const Tab = createMaterialBottomTabNavigator();
-  const iconSize = 26;
+  const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Home"
-        activeColor="#fff"
-        inactiveColor="#ccc"
-        barStyle={styles.bottomBar}>
-        <Tab.Screen
+      <Stack.Navigator initialRouteName="home">
+        <Stack.Screen
           name="home"
           component={HomeScreen}
-          options={{
-            tabBarIcon: ({color}) => (
-              <MaterialIcons name="home" color={color} size={iconSize} />
-            ),
-          }}
+          options={{headerShown: false}}
         />
-        <Tab.Screen
+        <Stack.Screen
           name="search"
           component={SearchScreen}
-          options={{
-            tabBarIcon: ({color}) => (
-              <MaterialIcons name="hotel" color={color} size={iconSize} />
-            ),
-          }}
+          options={{headerShown: false}}
         />
-      </Tab.Navigator>
-      {/* <Notification /> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
