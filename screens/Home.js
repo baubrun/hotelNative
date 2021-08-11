@@ -1,23 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, ImageBackground, View, Image, Text} from 'react-native';
 import Notification from '../components/Notification';
 import room2 from '../images/room-2.jpg';
+import Hero from '../components/Hero';
 
 const Home = () => {
   const notif = false;
   return (
-    <View>
-      <Image source={room2} style={styles.image} />
+    <View style={styles.container}>
+      <ImageBackground style={styles.image} source={room2} resizeMode="cover">
+        <Hero subtitle="Deluxe Rooms starting at $299" title="rooms" />
+      </ImageBackground>
       {notif && <Notification message="hoempage" _type="error" />}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   image: {
-    maxWidth: '100%',
-    maxHeight: '100%',
-    resizeMode: 'cover',
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 

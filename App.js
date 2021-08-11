@@ -4,8 +4,8 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import HomeScreen from './screens/Home';
 import RoomsScreen from './screens/Rooms';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {View} from 'react-native';
-import Notification from './components/Notification';
+import {StyleSheet} from 'react-native';
+// import Notification from './components/Notification';
 
 const App = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -15,7 +15,8 @@ const App = () => {
       <Tab.Navigator
         initialRouteName="Home"
         activeColor="#fff"
-        inactiveColor="#ccc">
+        inactiveColor="#ccc"
+        barStyle={styles.bottomBar}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
@@ -41,5 +42,11 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  bottomBar: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+});
 
 export default App;
