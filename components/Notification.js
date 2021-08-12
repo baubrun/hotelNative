@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Toast, {BaseToast} from 'react-native-toast-message';
 
 const toastConfig = {
@@ -21,8 +21,7 @@ const Notification = ({message, _type}) => {
       text1: message,
       type: _type,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [_type, message]);
 
   return <Toast config={toastConfig} ref={ref => Toast.setRef(ref)} />;
 };

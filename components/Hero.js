@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-
+import {css} from '../css';
 const Hero = props => {
   const {subtitle, title} = props;
 
@@ -16,26 +16,27 @@ const Hero = props => {
 
 const styles = StyleSheet.create({
   banner: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    color: '#fff',
+    backgroundColor: css.blackColorTrans,
+    color: css.whiteColor,
     letterSpacing: 3,
     padding: 16,
   },
   subtitle: {
-    backgroundColor: 'rgba(255, 217, 179, 0.5)',
+    backgroundColor: css.mainColorTrans,
+    color: css.mainColorTrans,
     marginTop: 15,
     textAlign: 'center',
     textTransform: 'uppercase',
   },
   text: {
-    color: '#fff',
+    color: css.whiteColor,
     fontWeight: 'bold',
     fontSize: 16,
     padding: 10,
     textAlign: 'center',
   },
   title: {
-    color: '#fff',
+    color: css.whiteColor,
     fontWeight: 'bold',
     fontSize: 30,
     textAlign: 'center',

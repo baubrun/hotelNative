@@ -2,9 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/Home';
-import SearchScreen from './screens/Search';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {StyleSheet} from 'react-native';
+import SearchScreen from './screens/searchRooms/Search';
 // import Notification from './components/Notification';
 
 const App = () => {
@@ -22,15 +20,14 @@ const App = () => {
           component={SearchScreen}
           options={{headerShown: false}}
         />
+        <Stack.Screen
+          name="rooms"
+          component={SearchScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  bottomBar: {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  },
-});
 
 export default App;
