@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   guestRow: {
     backgroundColor: css.blackColorTrans,
     justifyContent: 'space-evenly',
-    marginTop: 20,
+    marginTop: 40,
     marginBottom: 10,
   },
   guestRowSelect: {

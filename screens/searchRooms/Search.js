@@ -7,7 +7,7 @@ import {roomTypes, guests} from '../../data/searchData';
 import {styles} from './styles';
 import {css} from '../../css';
 
-const Search = () => {
+const Search = props => {
   const [maxPrice, setMaxPrice] = useState(299);
   const [roomsType, setRoomsType] = useState('');
   const [numGuests, setNumGuests] = useState('');
@@ -41,7 +41,7 @@ const Search = () => {
       </View>
       <View style={styles.roomTypeRow}>
         <View>
-          <Text style={styles.roomSelectTitle}>Room Type</Text>
+          <Text style={styles.roomSelectTitle}> Room Type </Text>
         </View>
         <View style={styles.roomSelect}>
           <Select
@@ -85,7 +85,11 @@ const Search = () => {
         />
       </View>
       <View testID="searchBtn" style={styles.searchBtn}>
-        <Button title="SEARCH" color={css.mainColor} />
+        <Button
+          color={css.mainColor}
+          onPress={() => props.navigation.navigate('rooms')}
+          title="SEARCH"
+        />
       </View>
     </View>
   );
