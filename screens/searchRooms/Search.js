@@ -17,11 +17,15 @@ const Search = () => {
   return (
     <View>
       <View>
-        <Text style={styles.title}> Search Rooms </Text>
+        <Text testID="searchRoomsText" style={styles.title}>
+          Search Rooms
+        </Text>
       </View>
       <View style={styles.priceRow}>
         <View>
-          <Text style={styles.price}> {`Price: $${maxPrice}`} </Text>
+          <Text testID="priceText" style={styles.price}>
+            {`Price: $${maxPrice}`}
+          </Text>
         </View>
         <Slider
           testID="slider"
@@ -62,7 +66,7 @@ const Search = () => {
           />
         </View>
       </View>
-      <View style={styles.checkBoxRow}>
+      <View testID="breakfastCheckBox" style={styles.checkBoxRow}>
         <Check
           checkBoxColor="mainColor"
           leftTextStyle={styles.checkBoxStyle}
@@ -71,7 +75,7 @@ const Search = () => {
           leftText="Breakfast"
         />
       </View>
-      <View style={styles.checkBoxRow}>
+      <View testID="petsCheckBox" style={styles.checkBoxRow}>
         <Check
           checkBoxColor="blackColor"
           leftTextStyle={styles.checkBoxStyle}
@@ -80,7 +84,7 @@ const Search = () => {
           leftText="Pets"
         />
       </View>
-      <View style={styles.searchBtn}>
+      <View testID="searchBtn" style={styles.searchBtn}>
         <Button title="SEARCH" color={css.mainColor} />
       </View>
     </View>

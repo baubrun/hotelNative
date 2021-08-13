@@ -7,10 +7,16 @@ describe('Search Rooms page', () => {
     cleanup();
   });
 
+  it('should render search rooms text', () => {
+    const component = <Search />;
+    const {getByTestId} = render(component);
+    const searchRoomsText = getByTestId('searchRoomsText');
+    expect(searchRoomsText).toBeTruthy();
+  });
   it('should render price text', () => {
     const component = <Search />;
-    const {getByText} = render(component);
-    const price = getByText(/price: \$299/i);
+    const {getByTestId} = render(component);
+    const price = getByTestId('priceText');
     expect(price).toBeTruthy();
   });
 
@@ -21,5 +27,21 @@ describe('Search Rooms page', () => {
     const guestSelect = getByTestId('guestSelect');
     expect(roomSelect).toBeTruthy();
     expect(guestSelect).toBeTruthy();
+  });
+
+  it('should render breakfast and pets checkboxes', async () => {
+    const component = <Search />;
+    const {getByTestId} = render(component);
+    const petsCheckBox = getByTestId('petsCheckBox');
+    const breakfastCheckBox = getByTestId('breakfastCheckBox');
+    expect(petsCheckBox).toBeTruthy();
+    expect(breakfastCheckBox).toBeTruthy();
+  });
+
+  it('should render search button', async () => {
+    const component = <Search />;
+    const {getByTestId} = render(component);
+    const searchBtn = getByTestId('searchBtn');
+    expect(searchBtn).toBeTruthy();
   });
 });
