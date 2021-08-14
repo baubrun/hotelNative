@@ -3,39 +3,61 @@ import {StyleSheet} from 'react-native';
 import Toast, {BaseToast} from 'react-native-toast-message';
 
 const toastConfig = {
+  error: ({text1, props, type, ...rest}) => (
+    <BaseToast
+      {...rest}
+      style={styles.error}
+      contentContainerStyle={styles.toastContent}
+      text1Style={styles.error}
+      text1={text1}
+      text2={props.uuid}
+    />
+  ),
   success: ({text1, props, type, ...rest}) => (
     <BaseToast
       {...rest}
-      style={type === 'success' ? styles.success : styles.error}
+      style={styles.success}
       contentContainerStyle={styles.toastContent}
-      text1Style={styles.text1Style}
+      text1Style={styles.success}
       text1={text1}
       text2={props.uuid}
     />
   ),
 };
 
-const Notification = ({message, _type}) => {
+const Notification = ({message, _type, clearErr}) => {
   useEffect(() => {
     Toast.show({
       text1: message,
       type: _type,
+      onHide: () => {
+        clearErr();
+      },
     });
-  }, [_type, message]);
+  }, [_type, message, clearErr]);
 
-  return <Toast config={toastConfig} ref={ref => Toast.setRef(ref)} />;
+  return (
+    <Toast
+      style={styles.container}
+      config={toastConfig}
+      ref={ref => Toast.setRef(ref)}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    zIndex: 100,
+  },
   error: {
     borderLeftColor: 'red',
-  },
-  text1Style: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '400',
   },
   success: {
     borderLeftColor: 'green',
+    fontSize: 14,
+    fontWeight: '400',
   },
   toastContent: {paddingHorizontal: 15},
 });

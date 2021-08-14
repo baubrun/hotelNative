@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import {Text, View, Button} from 'react-native';
 import Slider from '@react-native-community/slider';
 import Select from '../../components/Select';
@@ -6,6 +7,8 @@ import Check from '../../components/Check';
 import {roomTypes, guests} from '../../data/searchData';
 import {styles} from './styles';
 import {css} from '../../css';
+import Notification from '../../components/Notification';
+import {getRooms, setError, clearError} from '../../redux/roomSlice';
 
 const Search = props => {
   const [maxPrice, setMaxPrice] = useState(299);
@@ -13,9 +16,27 @@ const Search = props => {
   const [numGuests, setNumGuests] = useState('');
   const [breakfast, setBreakfast] = useState(false);
   const [pets, setPets] = useState(false);
+  const {rooms, getRoomsList, roomsError, clearErr} = props;
+
+  const handleSearch = async () => {
+    try {
+      getRoomsList();
+      props.navigation.navigate('rooms');
+    } catch (err) {
+      const errMsg = err?.response ? err.response?.data : err?.message;
+      roomsError(errMsg);
+    }
+  };
 
   return (
     <View>
+      {rooms?.error && (
+        <Notification
+          message={rooms?.error}
+          _type="error"
+          clearErr={clearErr}
+        />
+      )}
       <View>
         <Text testID="searchRoomsText" style={styles.title}>
           Search Rooms
@@ -87,7 +108,7 @@ const Search = props => {
       <View testID="searchBtn" style={styles.searchBtn}>
         <Button
           color={css.mainColor}
-          onPress={() => props.navigation.navigate('rooms')}
+          onPress={() => handleSearch()}
           title="SEARCH"
         />
       </View>
@@ -95,4 +116,14 @@ const Search = props => {
   );
 };
 
-export default Search;
+const mapStateToProps = state => ({
+  rooms: state.rooms,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getRoomsList: () => dispatch(getRooms()),
+  roomsError: payload => dispatch(setError(payload)),
+  clearErr: () => dispatch(clearError()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

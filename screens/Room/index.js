@@ -1,16 +1,9 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
-import {defaultRoom} from '../../data/';
+import React from 'react';
+import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
+import {images, defaultRoom} from '../../images';
 import {styles} from './roomStyle';
 
 const Room = props => {
-  const [imgLoaded, setImgLoaded] = useState(false);
   const {item} = props;
 
   return (
@@ -18,11 +11,11 @@ const Room = props => {
       <View style={styles.imageContainer}>
         <ImageBackground
           style={styles.image}
-          source={item.images[0] || defaultRoom}
+          source={images[item.images[0]].path || defaultRoom}
           resizeMode="cover"
         />
 
-        <View style={styles.priceContainer}>
+        <View testID="price" style={styles.priceContainer}>
           <Text style={styles.priceText}>{`$${item.price}`}</Text>
           <Text style={styles.priceText}>per night</Text>
         </View>
@@ -36,7 +29,7 @@ const Room = props => {
         </View>
       </View>
 
-      <View style={styles.roomInfo}>
+      <View testID="roomInfo" style={styles.roomInfo}>
         <Text style={styles.roomInfoText}>{item.name}</Text>
       </View>
     </View>

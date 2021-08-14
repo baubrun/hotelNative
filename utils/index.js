@@ -5,7 +5,7 @@ export const getUniqueTypes = (items, value) => {
 
 export const formatData = items => {
   let tempItems = items.map(item => {
-    let images = item.images.map(i => i.url);
+    let images = item.images.map(i => i.name);
     let room = {...item, images};
     return room;
   });

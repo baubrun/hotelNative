@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     color: css.whiteColor,
   },
   roomContainer: {
-    marginTop: 20,
+    marginBottom: 40,
   },
   roomInfo: {
     backgroundColor: css.darkGreyColor,

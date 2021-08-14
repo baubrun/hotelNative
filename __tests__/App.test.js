@@ -30,7 +30,7 @@ describe('App', () => {
     fireEvent.press(newPage);
 
     await waitFor(() => {
-      const roomsPage = getByText(/Rooms page/i);
+      const roomsPage = getByText(/search rooms/i);
       expect(roomsPage).toBeTruthy();
     });
   });

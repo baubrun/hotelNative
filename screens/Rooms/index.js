@@ -1,18 +1,24 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {View, FlatList, Text} from 'react-native';
+import {View, FlatList, Text, ActivityIndicator} from 'react-native';
 import Room from '../Room';
-import {getRooms} from '../../redux/roomSlice';
 import {formatData} from '../../utils';
+import {css} from '../../css';
+import {styles} from './styles';
 
 const renderItem = ({item}) => <Room item={item} />;
 
 const Rooms = props => {
-  const {getRoomsList, rooms} = props;
-  // useEffect(() => {
-  //   getRoomsList();
-  // }, [getRoomsList]);
+  const {rooms} = props;
+
   const foundRooms = formatData(rooms.rooms);
+  if (rooms.loading) {
+    return (
+      <View style={[styles.container, styles.horizontal]}>
+        <ActivityIndicator size="large" color={css.mainColor} />
+      </View>
+    );
+  }
 
   if (foundRooms?.length < 1) {
     return (
@@ -26,7 +32,7 @@ const Rooms = props => {
       <FlatList
         data={foundRooms}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item._id}
       />
     </View>
   );
@@ -35,9 +41,4 @@ const Rooms = props => {
 const mapStateToProps = state => ({
   rooms: state.rooms,
 });
-
-const mapDispatchToProps = dispatch => ({
-  getRoomsList: () => dispatch(getRooms()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Rooms);
+export default connect(mapStateToProps, null)(Rooms);
