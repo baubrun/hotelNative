@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {domain} from '../api';
-
 /**
  *  GET rooms
  * @param {
@@ -60,6 +59,9 @@ export const roomsSlice = createSlice({
     clearError: state => {
       state.error = null;
     },
+    setRooms: (state, action) => {
+      state.rooms = action.payload;
+    },
   },
   extraReducers: {
     [getRooms.pending]: state => {
@@ -98,6 +100,6 @@ export const roomsSlice = createSlice({
   },
 });
 
-export const {clearError, setError} = roomsSlice.actions;
+export const {clearError, setError, setRooms} = roomsSlice.actions;
 export const roomsState = state => state.rooms;
 export default roomsSlice.reducer;

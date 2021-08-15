@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckBox from 'react-native-check-box';
-import {css} from '../../css';
+import {css} from '../css';
 
 const Check = props => {
   return (

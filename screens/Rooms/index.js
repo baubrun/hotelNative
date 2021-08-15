@@ -7,10 +7,8 @@ import {styles} from './styles';
 import frontDeskImg from '../../images/front-desk.jpg';
 import Spinner from '../../components/Spinner';
 
-const renderItem = ({item}) => <Room item={item} />;
-
 const Rooms = props => {
-  const {rooms} = props;
+  const {rooms, images, defaultRoom} = props;
 
   const foundRooms = formatData(rooms?.rooms);
 
@@ -36,8 +34,11 @@ const Rooms = props => {
   return (
     <View>
       <FlatList
+        testID="rooms"
         data={foundRooms}
-        renderItem={renderItem}
+        renderItem={({item}) => (
+          <Room item={item} images={images} defaultRoom={defaultRoom} />
+        )}
         keyExtractor={item => item?._id}
       />
     </View>

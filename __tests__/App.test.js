@@ -12,7 +12,7 @@ describe('App', () => {
     cleanup();
   });
 
-  it('should render home page', () => {
+  it('should render home screen', () => {
     const component = <App />;
 
     const {getByText} = render(component);
@@ -22,16 +22,16 @@ describe('App', () => {
     expect(home).toBeTruthy();
   });
 
-  it('should render search rooms page', async () => {
+  it('should render search rooms screen', async () => {
     const component = <App />;
 
     const {getByText} = render(component);
-    const newPage = getByText(/hostel/i);
-    fireEvent.press(newPage);
+    const newScreen = getByText(/hostel/i);
+    fireEvent.press(newScreen);
 
     await waitFor(() => {
-      const roomsPage = getByText(/search rooms/i);
-      expect(roomsPage).toBeTruthy();
+      const roomsScreen = getByText(/search rooms/i);
+      expect(roomsScreen).toBeTruthy();
     });
   });
 });

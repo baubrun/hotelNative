@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, fireEvent, cleanup} from '@testing-library/react-native';
 import Select from '../components/Select';
-import {roomTypes, guests} from '../data/searchData';
+import {Wrapper, capacity, roomTypes} from '../testUtils';
 
 describe('Picker', () => {
   afterEach(() => {
@@ -9,22 +9,24 @@ describe('Picker', () => {
   });
 
   it('guest picker should be called', () => {
-    const setNumGuestsMock = jest.fn();
+    const setCapacityMock = jest.fn();
 
     const component = (
-      <Select
-        styling
-        items={guests}
-        name="capacitySelect"
-        selected=""
-        setSelected={setNumGuestsMock}
-      />
+      <Wrapper>
+        <Select
+          styling
+          items={capacity}
+          name="capacitySelect"
+          selected=""
+          setSelected={setCapacityMock}
+        />
+      </Wrapper>
     );
 
     const {getByTestId} = render(component);
     const capacitySelect = getByTestId('capacitySelect');
     fireEvent(capacitySelect, 'onValueChange');
-    expect(setNumGuestsMock).toHaveBeenCalled();
+    expect(setCapacityMock).toHaveBeenCalled();
   });
 
   it('room type picker should be called', () => {

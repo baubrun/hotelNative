@@ -1,6 +1,6 @@
 import React from 'react';
 import {Picker} from '@react-native-picker/picker';
-import {css} from '../../css';
+import {css} from '../css';
 import {StyleSheet} from 'react-native';
 
 const Select = props => {

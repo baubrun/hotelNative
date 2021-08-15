@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {images, defaultRoom} from '../../images';
 import {styles} from './styles';
 import Image from 'react-native-image-progress';
 import * as Progress from 'react-native-progress';
 import {css} from '../../css';
 
 const Room = props => {
-  const {item} = props;
+  const {item, images, defaultRoom} = props;
 
   return (
     <View style={styles.roomContainer} testID="room">
