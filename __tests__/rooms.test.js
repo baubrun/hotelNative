@@ -1,11 +1,11 @@
 import React from 'react';
 import {render, cleanup, fireEvent} from '@testing-library/react-native';
-import Rooms from '../../screens/Rooms';
-import {data} from '../../testUtils/roomData';
-import {Wrapper} from '../../testUtils';
+import Rooms from '../screens/Rooms';
+import {data} from '../testUtils/roomData';
+import {Wrapper} from '../testUtils';
 import {FlatList} from 'react-native';
-import Room from '../../screens/Room';
-import {images, defaultRoom} from '../../images';
+import Room from '../screens/Room';
+import {images, defaultRoom} from '../images';
 
 const eventData = {
   nativeEvent: {
