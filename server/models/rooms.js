@@ -14,19 +14,10 @@ const RoomSchema = new Schema({
   price: {
     type: Number,
   },
-  size: {
-    type: Number,
-  },
   capacity: {
     type: Number,
   },
   pets: {
-    type: Boolean,
-  },
-  breakfast: {
-    type: Boolean,
-  },
-  featured: {
     type: Boolean,
   },
   description: {

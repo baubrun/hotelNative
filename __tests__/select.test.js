@@ -15,15 +15,15 @@ describe('Picker', () => {
       <Select
         styling
         items={guests}
-        name="guestSelect"
+        name="capacitySelect"
         selected=""
         setSelected={setNumGuestsMock}
       />
     );
 
     const {getByTestId} = render(component);
-    const guestSelect = getByTestId('guestSelect');
-    fireEvent(guestSelect, 'onValueChange');
+    const capacitySelect = getByTestId('capacitySelect');
+    fireEvent(capacitySelect, 'onValueChange');
     expect(setNumGuestsMock).toHaveBeenCalled();
   });
 

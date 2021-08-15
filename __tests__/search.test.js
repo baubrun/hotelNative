@@ -24,18 +24,16 @@ describe('Search Rooms page', () => {
     const component = <Search />;
     const {getByTestId} = render(component);
     const roomSelect = getByTestId('roomTypeSelect');
-    const guestSelect = getByTestId('guestSelect');
+    const capacitySelect = getByTestId('capacitySelect');
     expect(roomSelect).toBeTruthy();
-    expect(guestSelect).toBeTruthy();
+    expect(capacitySelect).toBeTruthy();
   });
 
-  it('should render breakfast and pets checkboxes', async () => {
+  it('should render pets checkboxe', async () => {
     const component = <Search />;
     const {getByTestId} = render(component);
     const petsCheckBox = getByTestId('petsCheckBox');
-    const breakfastCheckBox = getByTestId('breakfastCheckBox');
     expect(petsCheckBox).toBeTruthy();
-    expect(breakfastCheckBox).toBeTruthy();
   });
 
   it('should render search button', async () => {

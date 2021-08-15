@@ -1,7 +1,10 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {images, defaultRoom} from '../../images';
-import {styles} from './roomStyle';
+import {styles} from './styles';
+import Image from 'react-native-image-progress';
+import * as Progress from 'react-native-progress';
+import {css} from '../../css';
 
 const Room = props => {
   const {item} = props;
@@ -9,12 +12,16 @@ const Room = props => {
   return (
     <View style={styles.roomContainer} testID="room">
       <View style={styles.imageContainer}>
-        <ImageBackground
+        <Image
           style={styles.image}
+          indicator={Progress.Circle}
+          indicatorProps={{
+            color: css.mainColorTrans,
+          }}
+          imageStyle={styles.image}
           source={images[item.images[0]].path || defaultRoom}
           resizeMode="cover"
         />
-
         <View testID="price" style={styles.priceContainer}>
           <Text style={styles.priceText}>{`$${item.price}`}</Text>
           <Text style={styles.priceText}>per night</Text>

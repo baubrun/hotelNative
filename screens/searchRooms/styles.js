@@ -8,28 +8,35 @@ export const styles = StyleSheet.create({
   checkBoxStyle: {
     fontSize: 18,
   },
+  container: {
+    flex: 1,
+  },
   dropdownIconColor: {
     backgroundColor: css.blackColorTrans,
     color: css.whiteColor,
   },
-  guestRow: {
+  capacityRow: {
     backgroundColor: css.blackColorTrans,
     justifyContent: 'space-evenly',
     marginTop: 40,
     marginBottom: 10,
   },
-  guestRowSelect: {
+  capacityRowSelect: {
     backgroundColor: css.blackColorTrans,
     borderRadius: 5,
     minWidth: 200,
   },
-  guestRowTitle: {
+  capacityRowTitle: {
     borderRadius: 5,
     color: css.whiteColor,
     fontSize: 15,
     fontWeight: 'bold',
     padding: 10,
     textAlign: 'center',
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   min: {
     borderRadius: 5,
@@ -42,6 +49,9 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: 150,
+  },
+  paper: {
+    backgroundColor: css.whiteColor,
   },
   price: {
     color: css.blackColorTrans,
@@ -83,13 +93,11 @@ export const styles = StyleSheet.create({
   },
   title: {
     backgroundColor: css.blackColorTrans,
-    borderRadius: 5,
     borderColor: css.mainColor,
     borderBottomWidth: 2,
     color: css.whiteColor,
     fontSize: 18,
     fontWeight: 'bold',
-    margin: 20,
     padding: 10,
     textAlign: 'center',
   },

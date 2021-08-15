@@ -13,16 +13,6 @@ const toastConfig = {
       text2={props.uuid}
     />
   ),
-  success: ({text1, props, type, ...rest}) => (
-    <BaseToast
-      {...rest}
-      style={styles.success}
-      contentContainerStyle={styles.toastContent}
-      text1Style={styles.success}
-      text1={text1}
-      text2={props.uuid}
-    />
-  ),
 };
 
 const Notification = ({message, _type, clearErr}) => {
