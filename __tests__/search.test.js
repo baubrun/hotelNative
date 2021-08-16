@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, cleanup} from '@testing-library/react-native';
-import Search from '../screens/searchRooms/Search';
+import Search from '../screens/searchRooms';
 import {Wrapper} from '../testUtils';
 
 describe('Search Rooms screen', () => {
