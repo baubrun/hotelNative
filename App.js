@@ -5,7 +5,7 @@ import {useReduxDevToolsExtension} from '@react-navigation/devtools';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/Home';
-import SearchScreen from './screens/SearchRooms/Search';
+import SearchScreen from './screens/SearchRooms';
 import RoomsScreen from './screens/Rooms';
 import RoomScreen from './screens/Room';
 import {css} from './css';
