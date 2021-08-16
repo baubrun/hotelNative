@@ -2,6 +2,4 @@
 
 ### UNDER CONSTRUCTION
 
-### To run server: cd server && yarn server
-
-### To run frontend: yarn start && npx react-native run-android
+### To run server: cd ./server && yarn server

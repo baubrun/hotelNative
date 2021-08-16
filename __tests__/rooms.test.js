@@ -56,12 +56,11 @@ describe('Rooms screen', () => {
     expect(onEndReached).toHaveBeenCalled();
   });
 
-  it('Room should throw error when without item', () => {
+  it('Room should error view when item not passed as prop', () => {
     const item = {};
-    try {
-      render(<Room item={item} images={images} defaultRoom={defaultRoom} />);
-    } catch (error) {
-      expect(error.message).toEqual("Cannot read property '0' of undefined");
-    }
+    const {getByTestId} = render(
+      <Room item={item} images={images} defaultRoom={defaultRoom} />,
+    );
+    expect(getByTestId('room-error')).toBeTruthy();
   });
 });

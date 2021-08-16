@@ -8,6 +8,14 @@ import {css} from '../../css';
 const Room = props => {
   const {item, images, defaultRoom} = props;
 
+  if (!item?.images?.[0]) {
+    return (
+      <View testID="room-error">
+        <Text>items not loaded</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.roomContainer} testID="room">
       <View style={styles.imageContainer}>
