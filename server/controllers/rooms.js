@@ -1,6 +1,25 @@
 const Rooms = require('../models/rooms');
 
 /**
+ * GET room
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+const getRoom = async (req, res) => {
+  const {id} = req.params;
+  try {
+    const room = await Rooms.findById(id);
+
+    return res.status(200).json({
+      room,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      error: error.message,
+    });
+  }
+};
+/**
  * GET rooms capacity
  * @param {import("express").Request} req
  * @param {import("express").Response} res
@@ -69,29 +88,9 @@ const listRooms = async (req, res) => {
   }
 };
 
-/**
- * GET room detail
- * @param {import("express").Request} req
- * @param {import("express").Response} res
- */
-const getRoomDetail = async (req, res) => {
-  const {id} = req.params;
-  try {
-    const room = await Rooms.findById(id);
-
-    return res.status(200).json({
-      room,
-    });
-  } catch (error) {
-    return res.status(400).json({
-      error: error.message,
-    });
-  }
-};
-
 module.exports = {
   listCapacity,
   listRoomTypes,
   listRooms,
-  getRoomDetail,
+  getRoom,
 };

@@ -18,6 +18,7 @@ const toastConfig = {
 const Notification = ({message, _type, clearErr}) => {
   useEffect(() => {
     Toast.show({
+      visibilityTime: 2000,
       text1: message,
       type: _type,
       onHide: () => {

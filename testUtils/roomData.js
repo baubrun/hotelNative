@@ -21,3 +21,6 @@ export const data = [
     images: ['room5', 'room1Detail', 'room4Detail', 'room3Detail'],
   },
 ];
+
+export const capacity = ['1', '2', '5', '10'];
+export const roomTypes = ['single', 'double', 'family '];

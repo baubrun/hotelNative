@@ -1,6 +1,19 @@
 import axios from 'axios';
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {domain} from '../api';
+
+/**
+ *  GET room
+ * @param {string}
+ */
+export const getRoom = createAsyncThunk('/getRoom', async roomId => {
+  try {
+    const res = await axios.get(`${domain}/rooms/room/${roomId}`);
+    return res?.data;
+  } catch (err) {
+    return err.response?.data;
+  }
+});
 /**
  *  GET rooms
  * @param {
@@ -51,6 +64,7 @@ export const roomsSlice = createSlice({
     roomCapacity: [],
     roomTypes: [],
     rooms: [],
+    room: {},
   },
   reducers: {
     setError: (state, action) => {
@@ -62,8 +76,22 @@ export const roomsSlice = createSlice({
     setRooms: (state, action) => {
       state.rooms = action.payload;
     },
+    clearRoom: state => {
+      state.room = null;
+    },
   },
   extraReducers: {
+    [getRoom.pending]: state => {
+      state.loading = true;
+    },
+    [getRoom.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.room = action.payload?.room;
+    },
+    [getRoom.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error?.message;
+    },
     [getRooms.pending]: state => {
       state.loading = true;
     },
@@ -100,6 +128,6 @@ export const roomsSlice = createSlice({
   },
 });
 
-export const {clearError, setError, setRooms} = roomsSlice.actions;
+export const {clearError, setError, setRooms, clearRoom} = roomsSlice.actions;
 export const roomsState = state => state.rooms;
 export default roomsSlice.reducer;

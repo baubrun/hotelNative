@@ -15,7 +15,7 @@ const Search = props => {
   const {rooms, getRoomsList, roomsError, clearErr} = props;
   const [maxPrice, setMaxPrice] = useState(100);
   const [types, setTypes] = useState([]);
-  const [selectedRoom, setSelectedRoom] = useState('all');
+  const [selectedType, setSelectedType] = useState('all');
   const [capacity, setCapacity] = useState([]);
   const [selectedCapacity, setSelectedCapacity] = useState(1);
   const [pets, setPets] = useState(false);
@@ -28,12 +28,12 @@ const Search = props => {
   const handleSearch = async () => {
     const roomData = {
       price: maxPrice,
-      type: selectedRoom,
+      type: selectedType,
       capacity: selectedCapacity,
       pets,
     };
     try {
-      getRoomsList(roomData);
+      await getRoomsList(roomData);
       props.navigation.navigate('rooms');
     } catch (err) {
       const errMsg = err?.response ? err.response?.data : err?.message;
@@ -86,8 +86,8 @@ const Search = props => {
               <Select
                 items={types}
                 name="roomTypeSelect"
-                selected={selectedRoom}
-                setSelected={setSelectedRoom}
+                selected={selectedType}
+                setSelected={setSelectedType}
               />
             </View>
           </View>

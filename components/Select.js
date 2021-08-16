@@ -10,7 +10,7 @@ const Select = props => {
       selectedValue={props.selected}
       onValueChange={val => props.setSelected(val)}
       testID={props.name}>
-      {props.items.map((item, idx) => {
+      {props.items?.map((item, idx) => {
         return (
           <Picker.Item
             style={props.styling ? styles.stylePickerItem : styles.pickerItem}

@@ -1,22 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {View, FlatList, Text, ImageBackground} from 'react-native';
-import Room from '../Room';
-import {formatData} from '../../utils';
+import Room from '../../components/Room';
 import {styles} from './styles';
 import frontDeskImg from '../../images/front-desk.jpg';
 import Spinner from '../../components/Spinner';
 
 const Rooms = props => {
-  const {rooms, images, defaultRoom} = props;
+  const {rooms, images, defaultRoom, navigation} = props;
 
-  const foundRooms = formatData(rooms?.rooms);
-
-  if (rooms?.loading) {
-    return <Spinner />;
-  }
-
-  if (foundRooms?.length < 1) {
+  if (rooms?.rooms?.length < 1) {
     return (
       <View style={styles.container} testID="empty-search">
         <ImageBackground
@@ -33,14 +26,23 @@ const Rooms = props => {
 
   return (
     <View>
-      <FlatList
-        testID="rooms"
-        data={foundRooms}
-        renderItem={({item}) => (
-          <Room item={item} images={images} defaultRoom={defaultRoom} />
-        )}
-        keyExtractor={item => item?._id}
-      />
+      {rooms?.loading && <Spinner />}
+
+      {rooms?.rooms && (
+        <FlatList
+          testID="rooms"
+          data={rooms?.rooms}
+          renderItem={({item}) => (
+            <Room
+              item={item}
+              images={images}
+              defaultRoom={defaultRoom}
+              navigation={navigation}
+            />
+          )}
+          keyExtractor={item => item?._id}
+        />
+      )}
     </View>
   );
 };

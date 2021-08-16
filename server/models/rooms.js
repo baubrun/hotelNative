@@ -30,9 +30,7 @@ const RoomSchema = new Schema({
   ],
   images: [
     {
-      url: {
-        type: String,
-      },
+      type: String,
     },
   ],
 });

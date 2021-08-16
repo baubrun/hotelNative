@@ -7,9 +7,11 @@ const Hero = props => {
   return (
     <View style={styles.banner}>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.subtitle}>
-        <Text style={styles.text}>{subtitle} </Text>
-      </View>
+      {subtitle && (
+        <View style={styles.subtitle}>
+          <Text style={styles.text}>{subtitle} </Text>
+        </View>
+      )}
     </View>
   );
 };

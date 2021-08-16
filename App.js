@@ -7,7 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/Home';
 import SearchScreen from './screens/SearchRooms';
 import RoomsScreen from './screens/Rooms';
-import RoomScreen from './screens/Room';
+import RoomDetailScreen from './screens/RoomDetail';
 import {css} from './css';
 import {images, defaultRoom} from './images';
 
@@ -30,22 +30,28 @@ const App = () => {
             component={SearchScreen}
             options={{headerShown: false}}
           />
-
           <Stack.Screen
-            name="room"
-            component={RoomScreen}
+            name="roomDetail"
             options={{
-              title: 'Room',
-              headerTintColor: css.whiteColor,
+              title: '',
+              headerTitleAlign: 'center',
               headerStyle: {
-                backgroundColor: css.blackColorTrans,
+                backgroundColor: css.mainColorTrans,
               },
-            }}
-          />
+            }}>
+            {props => (
+              <RoomDetailScreen
+                {...props}
+                images={images}
+                defaultRoom={defaultRoom}
+              />
+            )}
+          </Stack.Screen>
           <Stack.Screen
             name="rooms"
             options={{
               title: 'Rooms',
+              headerTitleAlign: 'center',
               headerStyle: {
                 backgroundColor: css.mainColorTrans,
               },

@@ -2,4 +2,4 @@
 
 ### UNDER CONSTRUCTION
 
-### To run server: cd ./server && yarn server
+#### To run server: cd ./server && yarn server

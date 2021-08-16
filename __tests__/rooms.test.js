@@ -4,7 +4,7 @@ import Rooms from '../screens/Rooms';
 import {data} from '../testUtils/roomData';
 import {Wrapper} from '../testUtils';
 import {FlatList} from 'react-native';
-import Room from '../screens/Room';
+import Room from '../components/Room';
 import {images, defaultRoom} from '../images';
 
 const eventData = {
@@ -54,13 +54,5 @@ describe('Rooms screen', () => {
 
     fireEvent.scroll(getByTestId('rooms'), eventData);
     expect(onEndReached).toHaveBeenCalled();
-  });
-
-  it('Room should error view when item not passed as prop', () => {
-    const item = {};
-    const {getByTestId} = render(
-      <Room item={item} images={images} defaultRoom={defaultRoom} />,
-    );
-    expect(getByTestId('room-error')).toBeTruthy();
   });
 });
