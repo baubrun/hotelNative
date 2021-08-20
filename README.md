@@ -1,5 +1,5 @@
-#### A react-native hotel app with testing and Travis for continuous integration.
+#### A simple react-native hotel app
 
-### UNDER CONSTRUCTION
+#### Technologies: Express.js, MongoDB, Node.js, React.js, Redux
 
 #### To run server: cd ./server && yarn server

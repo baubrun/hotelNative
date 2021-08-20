@@ -7,9 +7,9 @@ const Select = props => {
   return (
     <Picker
       dropdownIconColor={props.styling ? css.whiteColor : css.blackColor}
-      selectedValue={props.selected}
+      selectedValue={props?.selected}
       onValueChange={val => props.setSelected(val)}
-      testID={props.name}>
+      testID={props?.name}>
       {props.items?.map((item, idx) => {
         return (
           <Picker.Item

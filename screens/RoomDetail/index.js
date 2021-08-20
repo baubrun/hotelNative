@@ -1,14 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {
-  View,
-  Text,
-  ScrollView,
-  SectionList,
-  FlatList,
-  VirtualizedList,
-  List,
-} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {styles} from './styles';
 import Hero from '../../components/Hero';
 import Image from 'react-native-image-progress';
@@ -26,7 +18,6 @@ const RoomDetail = props => {
   }, [room]);
 
   const moreImages = selectedRoom.images?.slice(1);
-  console.log('selectedRoom :>> ');
   return (
     <ScrollView style={styles.container}>
       {(loading || !selectedRoom?._id) && <Spinner />}
@@ -99,11 +90,10 @@ const RoomDetail = props => {
             More Images...
           </Text>
         </View>
-        {moreImages.map(img => {
+        {moreImages?.map(img => {
           return (
-            <View style={styles.image}>
+            <View key={img} style={styles.image}>
               <Image
-                key={img}
                 indicator={Progress.Circle}
                 indicatorProps={{
                   color: css.mainColorTrans,
